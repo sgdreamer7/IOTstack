@@ -1,0 +1,2 @@
+paho-mqtt==1.6.1
+pywatchman==1.4.1
