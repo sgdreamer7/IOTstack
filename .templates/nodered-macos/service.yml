@@ -1,0 +1,18 @@
+nodered-macos:
+  container_name: nodered-macos
+  build:
+    context: ./services/nodered-macos/.
+    args:
+    - DOCKERHUB_TAG=latest
+    - EXTRA_PACKAGES=
+  restart: unless-stopped
+  user: "0"
+  environment:
+    - TZ=Etc/UTC
+  ports:
+    - "1880:1880"
+  volumes:
+    - ./volumes/nodered-macos/data:/data
+    - ./volumes/nodered-macos/ssh:/root/.ssh
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /var/run/dbus/system_bus_socket:/var/run/dbus/system_bus_socket
